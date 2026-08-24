@@ -6,7 +6,12 @@ A simple cross-platform to-do application built with **Flutter** and **PostgreSQ
 
 ## UI Preview
 
-https://github.com/HusseinAbdow/to-do-app/raw/main/ui%20pics%20and%20vids/todo-app-preview.mp4
+<p align="center">
+  <a href="ui%20pics%20and%20vids/todo-app-preview.mp4" target="_blank">
+    <img src="ui%20pics%20and%20vids/demo-preview.gif" alt="To-Do app demo" width="80%">
+  </a>
+</p>
+<p align="center"><em>Auto-playing preview - click to watch the full-quality video</em></p>
 
 | List tasks | Add a task | Delete a task |
 | :---: | :---: | :---: |
