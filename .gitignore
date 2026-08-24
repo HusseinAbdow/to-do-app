@@ -43,3 +43,9 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Local database credentials (use config.example.dart as template)
+lib/configs/config.dart
+
+# DevTools local settings
+devtools_options.yaml

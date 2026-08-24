@@ -64,14 +64,20 @@ flutter pub get
 
 ### 3. Configure the database connection
 
-Edit `lib/configs/config.dart` to match your PostgreSQL setup:
+Database credentials are kept out of version control. Copy the template and fill in your own values:
+
+```bash
+cp lib/configs/config.example.dart lib/configs/config.dart
+```
+
+Then edit `lib/configs/config.dart`:
 
 ```dart
-const dbHost = "10.0.2.2";   // 10.0.2.2 = host machine from an Android emulator
+const dbHost = "10.0.2.2";   // 10.0.2.2 = host machine from an Android emulator; use localhost for desktop/web
 const int dbPort = 5432;
-const String dbName = "todoapp_db";
-const String dbUser = "postgres";
-const String dbPassword = "mypassword";
+const String dbName = "<your-database-name>";
+const String dbUser = "<your-username>";
+const String dbPassword = "<your-password>";
 ```
 
 Create the database if it does not exist:
@@ -110,8 +116,8 @@ flutter build apk            # build an APK (currently signed with debug keys)
 lib/
 ├── main.dart               # App entry point and theme
 ├── configs/
-│   ├── config.dart         # Database connection settings
-│   └── database.dart       # DBHelper: connect + CRUD queries
+│   ├── config.example.dart  # Template for database connection settings (copy to config.dart)
+│   └── database.dart        # DBHelper: connect + CRUD queries
 ├── pages/
 │   └── home_page.dart      # Main screen: task list, FAB, state management
 └── util/
