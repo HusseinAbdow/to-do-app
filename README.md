@@ -15,7 +15,7 @@ A simple cross-platform to-do application built with **Flutter** and **PostgreSQ
 
 | List tasks | Add a task | Delete a task |
 | :---: | :---: | :---: |
-| ![Task list](ui%20pics%20and%20vids/list.jpg) | ![Add task dialog](ui%20pics%20and%20vids/add_task.jpg) | ![Delete task via slide action](ui%20pics%20and%20vids/delete_task.jpg) |
+| ![Task list](ui%20pics%20and%20vids/list.png) | ![Add task dialog](ui%20pics%20and%20vids/add_task.png) | ![Delete task via slide action](ui%20pics%20and%20vids/delete_task.png) |
 
 ---
 
@@ -83,7 +83,7 @@ const String dbPassword = "<your-password>";
 Create the database if it does not exist:
 
 ```sql
-CREATE DATABASE todoapp_db;
+CREATE DATABASE your_database_name;
 ```
 
 The `tasks` table is created automatically on first launch.
