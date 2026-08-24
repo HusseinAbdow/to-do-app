@@ -24,7 +24,7 @@ class _HomePageState extends State<HomePage> {
 
   Future<void> _initDb() async {
       await db.connect();
-      print("Database connected");
+      debugPrint("Database connected");
       await loadTasks();
     } 
 
@@ -96,9 +96,9 @@ class _HomePageState extends State<HomePage> {
             ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: const Color.fromRGBO(1, 79, 13, 1),
-        child: const Icon(Icons.add, color: Colors.white),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(100)),
         onPressed: dialogToAddTask,
+        child: const Icon(Icons.add, color: Colors.white),
       ),
     );
   }

@@ -1,5 +1,7 @@
 import 'dart:async';
 
+import 'package:flutter/foundation.dart';
+
 import 'config.dart';
 import 'package:postgres/postgres.dart';
 
@@ -20,7 +22,7 @@ class DBHelper {
     );
 
     await _connection!.open();
-    print("Connected to db sir! LETS GET THE JOB DONE");
+    debugPrint("Connected to db sir! LETS GET THE JOB DONE");
 
     // check if  table exists
     await _connection!.query('''
@@ -45,7 +47,7 @@ class DBHelper {
     await _connection!.query("INSERT INTO tasks (task, completed) VALUES(@task, @completed)",
     substitutionValues: {"task": task, "completed": false}
     );
-    print("the task $task has been added");
+    debugPrint("the task $task has been added");
   }
 
   Future <void> updateTask (int id, bool completed) async{
@@ -53,14 +55,14 @@ class DBHelper {
    await _connection!.query("UPDATE tasks SET completed = @completed WHERE id = @id",
    substitutionValues: {"completed": completed, "id":  id}
    );
-   print("the task completion  has been updated to $completed");
+   debugPrint("the task completion  has been updated to $completed");
   }
     Future <void> deleteTask(int id) async{
       await connect();
       await _connection!.query("DELETE FROM tasks WHERE id = @id",
       substitutionValues: {"id": id}
       );
-      print("the task with id $id has been deleted");
+      debugPrint("the task with id $id has been deleted");
     }
 
 }

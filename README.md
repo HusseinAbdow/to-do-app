@@ -11,11 +11,13 @@ A simple cross-platform to-do application built with **Flutter** and **PostgreSQ
     <img src="ui%20pics%20and%20vids/demo-preview.gif" alt="To-Do app demo" width="80%">
   </a>
 </p>
-<p align="center"><em>Auto-playing preview - click to watch the full-quality video</em></p
+<p align="center"><em>Auto-playing preview - click to watch the full-quality video</em></p>
 
 | List tasks | Add a task | Delete a task |
 | :---: | :---: | :---: |
-| ![Task list](ui%20pics%20and%20vids/list.png) | ![Add task dialog](ui%20pics%20and%20vids/add_task.png) | ![Delete task via slide action](ui%20pics%20and%20vids/delete_task.png) |
+| <img src="ui%20pics%20and%20vids/list.png" width="250" alt="Task list"/> | <img src="ui%20pics%20and%20vids/add_task.png" width="250" alt="Add task dialog"/> | <img src="ui%20pics%20and%20vids/delete_task.png" width="250" alt="Delete task via slide action"/> |
+
+<p align="center"><em>Left to right: task list, add-task dialog, swipe-to-delete</em></p>
 
 ---
 
