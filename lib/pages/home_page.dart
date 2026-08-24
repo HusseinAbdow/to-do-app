@@ -42,10 +42,12 @@ class _HomePageState extends State<HomePage> {
   }
 
   Future<void> saveTask() async {
-    await db.addTask(_controller.text);
+    final navigator = Navigator.of(context);
+    if (_controller.text.trim().isEmpty) return;
+    await db.addTask(_controller.text.trim());
     _controller.clear();
     await loadTasks();
-    Navigator.of(context).pop();
+    navigator.pop();
   }
 
   void removeTask(index) async {

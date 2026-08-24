@@ -4,9 +4,13 @@ import 'config.dart';
 import 'package:postgres/postgres.dart';
 
 class DBHelper {
-  late PostgreSQLConnection _connection;
+  PostgreSQLConnection? _connection;
 
   Future<void> connect() async {
+    if (_connection != null && _connection!.isClosed == false) {
+      return;
+    }
+
     _connection = PostgreSQLConnection(
       dbHost,
       dbPort,
@@ -15,11 +19,11 @@ class DBHelper {
       password: dbPassword,
     );
 
-    await _connection.open();
+    await _connection!.open();
     print("Connected to db sir! LETS GET THE JOB DONE");
 
     // check if  table exists
-    await _connection.query('''
+    await _connection!.query('''
       CREATE TABLE IF NOT EXISTS tasks (
         id SERIAL PRIMARY KEY,
         task TEXT NOT NULL,
@@ -30,7 +34,7 @@ class DBHelper {
 
   Future<List<Map<String, dynamic>>> getTasks() async {
     await connect();
-    final results = await _connection.query("SELECT * FROM tasks");
+    final results = await _connection!.query("SELECT * FROM tasks");
     return results
         .map((row) => {"id": row[0], "task": row[1], "completed": row[2]})
         .toList();
@@ -38,7 +42,7 @@ class DBHelper {
 
   Future <void> addTask(String task) async{
     await connect();
-    await _connection.query("INSERT INTO tasks (task, completed) VALUES(@task, @completed)",
+    await _connection!.query("INSERT INTO tasks (task, completed) VALUES(@task, @completed)",
     substitutionValues: {"task": task, "completed": false}
     );
     print("the task $task has been added");
@@ -46,14 +50,14 @@ class DBHelper {
 
   Future <void> updateTask (int id, bool completed) async{
     await connect();
-   await _connection.query("UPDATE tasks SET completed = @completed WHERE id = @id",
+   await _connection!.query("UPDATE tasks SET completed = @completed WHERE id = @id",
    substitutionValues: {"completed": completed, "id":  id}
    );
    print("the task completion  has been updated to $completed");
   }
     Future <void> deleteTask(int id) async{
       await connect();
-      await _connection.query("DELETE FROM tasks WHERE id = @id",
+      await _connection!.query("DELETE FROM tasks WHERE id = @id",
       substitutionValues: {"id": id}
       );
       print("the task with id $id has been deleted");
